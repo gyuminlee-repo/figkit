@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#110" class="md-skip">
+        <a href="#120" class="md-skip">
           콘텐츠로 이동
         </a>
       
@@ -1229,14 +1229,15 @@
 
 
 
-<h1 id="110">범위와 알려진 한계 (1.1.0)<a class="headerlink" href="#110" title="Permanent link">&para;</a></h1>
+<h1 id="120">범위와 알려진 한계 (1.2.0)<a class="headerlink" href="#120" title="Permanent link">&para;</a></h1>
 <h2 id="_1">쓸 수 있는 것<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>호출 LLM 이 입력과 명령 실행을 맡을 수 있다. 계통수에서 「모델 호출 없음」은 내부 작가·비평 호출이 없다는 뜻이다. 호출 LLM 은 <a href="../path-a/tree/#newick-input">tree 입력 절차</a>를 따라 Newick 과 표시 이름·분류표를 넘긴다.</p>
 <p>경로 A 전부(데이터 패널, 유전체 지도, 변이 패널, 표, 계통수 패널)와 경로 B 의 대사경로·유전자 클러스터 도판이다. 경로 B 의 이 두 장르는 처음 보는 논문 한 편씩을 그려 충실도 FAIL 0 으로 통과했다. Illustrator 2026 왕복은 경로 A 데이터 패널과 경로 B 출고물 모두 통과했다.</p>
 <h2 id="_2">실험 기능<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>경로 B 의 일반 기전도는 회귀 검사와 예제로만 확인했다. 처음 보는 요청으로 시험한 적이 없으므로 결과를 직접 검수한다. 경로 B 한 장은 요청과 라운드 수에 따라 12~21 USD, 30~65 분이 든다(<a href="../path-b/cost/">비용과 시간</a>).</p>
 <h2 id="_3">알려진 한계<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <ul>
-<li><code>--tree</code> 로 계통수를 모델이 그리게 하는 경로는 처음 보는 논문 시험에서 통과하지 못했다. 충실도 FAIL 은 0 이었지만 직접 검수에서 가리킬 대상이 없는 범례, 끊긴 말단, 넓은 빈 영역, 중복 라벨이 나왔다. 계통수가 필요하면 경로 A 의 <a href="../path-a/tree/">계통수 패널</a>(<code>tree_table</code>, <code>tree_matrix</code>)을 쓴다.</li>
+<li>계통수는 경로 A 의 <a href="../path-a/tree/">계통수 패널</a>을 쓴다. <code>--tree &lt;Newick&gt;</code> 단독 실행은 표 변환부터 <code>tree_table</code> 패널 합성까지 모델을 부르지 않는다. <code>--brief</code>/<code>--manuscript</code> 와 섞으면 모델 호출 전에 종료코드 2 로 멈춘다. S1 이 장르를 <code>tree</code> 로 선언한 요청도 작가 호출 전에 같은 안내로 멈춘다.</li>
 <li>충실도 검사는 요청한 항목이 그림에 있는지를 본다. 배치 품질(빈 영역, 중복 라벨)은 직접 검수로 확인한다.</li>
 <li>큰 계통수(말단 약 80 개 이상)는 <code>page_aspect</code> lint 경고가 남는다. 크기 정책은 정하지 않았다.</li>
 <li>이 판의 자동 CI 는 꺼져 있다. 출고 전 검증은 로컬 검사로 했다.</li>

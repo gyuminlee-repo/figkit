@@ -1306,7 +1306,7 @@ claude<span class="w"> </span>plugin<span class="w"> </span>install<span class="
 <h2 id="art-catalog">아트 카탈로그 (경로 B)<a class="headerlink" href="#art-catalog" title="Permanent link">&para;</a></h2>
 <p>경로 B 의 작가는 Servier Medical Art 카탈로그에서 아이콘을 고른다. 카탈로그는 플러그인에 없고 한 번 받아 만든다.</p>
 <div class="highlight"><pre><span></span><code>python3<span class="w"> </span>mech/servier_fetch.py<span class="w"> </span>--assets<span class="w"> </span>&lt;아트<span class="w"> </span>폴더&gt;
-<span class="nb">export</span><span class="w"> </span><span class="nv">FIGBUILD_ASSETS</span><span class="o">=</span>&lt;아트<span class="w"> </span>폴더&gt;
+<span class="nb">export</span><span class="w"> </span><span class="nv">FIGKIT_ASSETS</span><span class="o">=</span>&lt;아트<span class="w"> </span>폴더&gt;
 </code></pre></div>
 <p>원천 177 개(약 11 MB)를 받아 sha256 을 대조하고 카탈로그를 굽는다. Servier 항목은 CC BY 4.0 이라 저작자 표시가 의무다. <code>make_figure.py</code> 가 그림이 쓴 아트의 표기문을 캡션 사이드카의 <code>Art:</code> 줄에 적는다.</p>
 <h2 id="illustrator-mcp">Illustrator MCP 등록 (마무리를 쓸 때)<a class="headerlink" href="#illustrator-mcp" title="Permanent link">&para;</a></h2>

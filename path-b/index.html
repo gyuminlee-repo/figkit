@@ -1391,7 +1391,8 @@ The repression by P is the point of the figure; draw it as the only inhibitory e
 </code></pre></div>
 <p>그림이 무엇을 주장하는지, 등장 요소와 그 사이 관계, target 저널을 적어 두면 왕복이 준다.</p>
 <h2 id="_3">지원 장르<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<p>1.1.0 이 그리는 장르는 여섯이다.</p>
+<p>경로 B 가 그리는 장르는 다섯이다. 계통수는 경로 A 의 <a href="../path-a/tree/"><code>--tree</code> 단독 실행</a>으로 그린다. <code>--tree</code> 와 <code>--brief</code>/<code>--manuscript</code> 를 섞으면 모델 호출 전에 종료코드 2 로 멈춘다. S1 이 장르를 <code>tree</code> 로 선언해도 작가 호출 전에 같은 안내로 멈춘다.</p>
+<p>호출 LLM 은 계통수 요청을 이 경로로 보내지 않고 Newick 과 필요한 표시 이름·분류표를 정리해 <code>--tree</code> 로 바로 실행한다. 입력 위상이 없을 때만 Newick 또는 위상 데이터를 요청한다. tree 안내의 <code>rerun:</code> 명령은 호출 LLM 이 실행하며 연구자에게 명령 입력을 넘기지 않는다.</p>
 <table>
 <thead>
 <tr>
@@ -1411,10 +1412,6 @@ The repression by P is the point of the figure; draw it as the only inhibitory e
 <tr>
 <td><code>locus_comparison</code></td>
 <td>유전자 좌위 비교</td>
-</tr>
-<tr>
-<td><code>tree</code></td>
-<td>표에서 그린 계통수</td>
 </tr>
 <tr>
 <td><code>pathway</code></td>

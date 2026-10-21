@@ -1235,7 +1235,8 @@
 <p><strong>체크아웃 안에서 Claude Code 를 열었는데 스킬이 안 잡힌다.</strong> 스킬은 플러그인 경로에 있다. <code>claude --plugin-dir &lt;체크아웃&gt;</code> 으로 연다.</p>
 <p><strong><code>claude plugin update</code> 가 아무것도 받지 않는다.</strong> 플러그인 <code>version</code> 이 오르지 않았다. 새 판이 나오지 않은 것이다.</p>
 <h2 id="_3">실행<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<p><strong>종료코드 2 와 <code>[MISSING]</code> 줄.</strong> 빠진 준비물과 얻는 법이 그 줄에 적혀 있다. 경로 B 에서 흔한 것은 아트 카탈로그다(<code>python3 mech/servier_fetch.py --assets &lt;폴더&gt;</code> 뒤 <code>FIGBUILD_ASSETS=&lt;폴더&gt;</code>).</p>
+<p><strong>종료코드 2 와 <code>[MISSING]</code> 줄.</strong> 빠진 준비물과 얻는 법이 그 줄에 적혀 있다. 경로 B 에서 흔한 것은 아트 카탈로그다(<code>python3 mech/servier_fetch.py --assets &lt;폴더&gt;</code> 뒤 <code>FIGKIT_ASSETS=&lt;폴더&gt;</code>).</p>
+<p><strong>업데이트 뒤 아트 검사가 SKIP된다.</strong> 이전 환경 변수와 캐시는 자동 승계하지 않는다. <code>FIGKIT_ASSETS</code>로 아트 폴더를 다시 지정하고 <code>python3 mech/servier_art.py --ensure &lt;fig.yaml&gt;</code>로 필요한 변형을 <code>~/.cache/figkit/art</code>에 생성한다. 변형 캐시를 따로 둘 때는 <code>FIGKIT_ART_CACHE</code>를 지정한다.</p>
 <p><strong>csv 를 줬는데 그림이 없다.</strong> 짝이 되는 <code>--panel</code> 이 없으면 그리지 않고 템플릿을 쓴 뒤 종료코드 2 로 멈춘다. 템플릿을 채워 <code>--panel</code> 로 준다.</p>
 <p><strong>종료코드 3.</strong> 열린 질문이 있거나 요청이 지원 장르 밖으로 읽혔다. <code>&lt;name&gt;.questions.md</code> 를 보고 <code>--answers</code> 로 다시 돌리거나 <code>--accept-open</code> 으로 그린다. 장르 밖이면 <code>--out-of-scope-ok</code> 다.</p>
 <p><strong>도중에 멈췄다(사용 한도 등).</strong> 같은 명령에 <code>--resume</code> 을 붙인다.</p>
@@ -1262,14 +1263,14 @@
 </thead>
 <tbody>
 <tr>
-<td><code>FIGBUILD_ASSETS</code></td>
+<td><code>FIGKIT_ASSETS</code></td>
 <td>아트 뿌리</td>
 <td>플러그인 안 <code>mech/assets</code></td>
 </tr>
 <tr>
-<td><code>FIGBUILD_CACHE</code></td>
+<td><code>FIGKIT_CACHE</code></td>
 <td>공유 결과 캐시</td>
-<td><code>~/.cache/figbuild</code></td>
+<td><code>~/.cache/figkit</code></td>
 </tr>
 <tr>
 <td><code>FIGKIT_DATA</code></td>
