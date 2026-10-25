@@ -504,10 +504,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#120" class="md-nav__link">
+  <a href="#130" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1.2.0 판에서 쓸 수 있는 것
+        1.3.0 판에서 쓸 수 있는 것
       
     </span>
   </a>
@@ -778,6 +778,34 @@
     
   
     작은 도식 (plan)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="path-a/svg/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    직접 그린 SVG 출고
   
 
     
@@ -1086,6 +1114,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="data-marks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    데이터 표식 규약
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1228,7 +1284,7 @@
 
 
 <h1 id="figkit">figkit 사용 가이드<a class="headerlink" href="#figkit" title="Permanent link">&para;</a></h1>
-<p>figkit(illustrator-figkit)은 논문에 들어갈 그림을 SVG 한 장으로 만들고 Adobe Illustrator 에서 편집 가능한 <code>.ai</code> 와 <code>.pdf</code> 로 마무리하는 도구다. Claude Code 플러그인으로 설치하고 명령 하나(<code>make_figure.py</code>)에 그림 설명, 원고, 데이터 가운데 하나 이상을 준다.</p>
+<p>figkit(illustrator-figkit)은 논문에 들어갈 그림을 SVG 한 장으로 만들고 Adobe Illustrator 에서 편집 가능한 <code>.ai</code> 와 <code>.pdf</code> 로 마무리하는 도구다. Claude Code 플러그인으로 설치하고 명령 하나(<code>make_figure.py</code>)에 호출 LLM 이 직접 그린 SVG 나 데이터를 준다.</p>
 <p><img alt="데이터 패널 예제: 균주별 비성장속도 막대 그래프" src="images/bar.svg" /></p>
 <h2 id="_1">무엇을 주면 무엇이 나오나<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <table>
@@ -1251,14 +1307,19 @@
 <td>없음</td>
 </tr>
 <tr>
+<td>호출 LLM 이 직접 그린 SVG</td>
+<td><code>--svg</code></td>
+<td>없음. figkit 은 모델을 부르지 않는다</td>
+</tr>
+<tr>
 <td>필요한 그림의 설명(md, txt)</td>
-<td><code>--brief</code></td>
-<td>있음. 본인 Claude 계정으로 돈다</td>
+<td><code>--legacy-loop --brief</code></td>
+<td>있음. 옛 모델 경로이고 본인 Claude 계정으로 돈다</td>
 </tr>
 <tr>
 <td>원고(md, txt, pdf)</td>
-<td><code>--manuscript</code></td>
-<td>있음</td>
+<td><code>--legacy-loop --manuscript</code></td>
+<td>있음. 옛 모델 경로</td>
 </tr>
 </tbody>
 </table>
@@ -1270,11 +1331,12 @@
 <li><a href="path-a/genome/">유전체 지도와 변이 패널</a>: 유전자 클러스터 비교, 플라스미드 지도, 유전자별 변이 지도</li>
 <li><a href="path-a/tree/">계통수 패널</a>: 표로 준 계통수(<code>tree_table</code>), Newick 과 행렬(<code>tree_matrix</code>)</li>
 <li><a href="path-a/plan/">작은 도식</a>: plan.json 으로 그리는 띠, 고리, 행렬 도식</li>
+<li><a href="path-a/svg/">직접 그린 SVG 출고</a>: 호출 LLM 이 그린 SVG 를 Illustrator 가 읽는 형식으로 옮긴다</li>
 </ul>
-<p><strong>경로 B</strong> 는 모델이 그린다. 요청문이나 원고를 읽고 무엇을 그릴지 정한 뒤 작가 모델이 좌표를 쓰고 비평 모델이 렌더를 판정한다. 구획이 겹치는 기전도, 같은 분자가 여러 번 나오는 그림, 대사경로처럼 요소가 많은 그림이 여기에 맞다. 비용과 시간이 든다(<a href="path-b/cost/">비용과 시간</a>).</p>
+<p><strong>경로 B</strong> 는 <code>--legacy-loop</code> 를 줄 때만 도는 옛 모델 경로다. 모델이 그린다. 요청문이나 원고를 읽고 무엇을 그릴지 정한 뒤 작가 모델이 좌표를 쓰고 비평 모델이 렌더를 판정한다. 구획이 겹치는 기전도, 같은 분자가 여러 번 나오는 그림, 대사경로처럼 요소가 많은 그림이 여기에 맞다. 비용과 시간이 든다(<a href="path-b/cost/">비용과 시간</a>).</p>
 <p>경계에 걸리면 경로 A 로 먼저 그린다. 그림 안 내용이 맞는지가 먼저이고 꾸밈은 <a href="illustrator/">Illustrator 마무리</a>에서 한다.</p>
-<h2 id="120">1.2.0 판에서 쓸 수 있는 것<a class="headerlink" href="#120" title="Permanent link">&para;</a></h2>
-<p>경로 A 전부(데이터 패널, 유전체 지도, 변이 패널, 표, 계통수 패널)와 경로 B 의 대사경로·유전자 클러스터 도판이다. 경로 B 의 일반 기전도는 실험 기능이다. 자세한 것은 <a href="scope/">범위와 알려진 한계</a>에 있다.</p>
+<h2 id="130">1.3.0 판에서 쓸 수 있는 것<a class="headerlink" href="#130" title="Permanent link">&para;</a></h2>
+<p>도식은 호출 LLM 이 그리고 <a href="path-a/svg/"><code>--svg</code> 로 출고</a>하는 것이 기본이다. 경로 A 전부(데이터 패널, 유전체 지도, 변이 패널, 표, 계통수 패널)도 그대로 쓴다. 경로 B 의 대사경로·유전자 클러스터 도판은 <code>--legacy-loop</code> 로만 돈다. 경로 B 의 일반 기전도는 실험 기능이다. 자세한 것은 <a href="scope/">범위와 알려진 한계</a>에 있다.</p>
 <h2 id="_3">진입<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="getting-started/requirements/">요구 사항 →</a></li>

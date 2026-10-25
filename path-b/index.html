@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://gyuminlee-repo.github.io/figkit/path-b/">
       
       
-        <link rel="prev" href="../path-a/plan/">
+        <link rel="prev" href="../path-a/svg/">
       
       
         <link rel="next" href="cost/">
@@ -699,6 +699,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../path-a/svg/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    직접 그린 SVG 출고
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1193,6 +1221,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data-marks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    데이터 표식 규약
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1335,10 +1391,10 @@
 
 
 <h1 id="_1">요청문과 원고에서 그림까지<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<p>경로 B 는 글을 읽고 그림을 그린다. 입력은 필요한 그림의 설명(<code>--brief</code>, md 또는 txt)과 원고(<code>--manuscript</code>, md·txt·pdf) 가운데 하나 이상이다. 모델을 부르고 본인 Claude 계정의 사용량이나 비용이 든다.</p>
+<p>경로 B 는 글을 읽고 그림을 그린다. 입력은 필요한 그림의 설명(<code>--brief</code>, md 또는 txt)과 원고(<code>--manuscript</code>, md·txt·pdf) 가운데 하나 이상이다. 모델을 부르고 본인 Claude 계정의 사용량이나 비용이 든다. 이 경로는 <code>--legacy-loop</code> 를 줄 때만 돈다. 기본 경로는 호출 LLM 이 SVG 를 그리고 <a href="../path-a/svg/"><code>--svg</code></a> 로 출고하는 것이다.</p>
 <h2 id="dry-run">먼저 dry-run<a class="headerlink" href="#dry-run" title="Permanent link">&para;</a></h2>
 <p><code>--dry-run</code> 은 준비물을 확인하고 원문을 조립하고 돌릴 명령을 찍는다. 모델을 부르지 않는다.</p>
-<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>make_figure.py<span class="w"> </span>--name<span class="w"> </span>xyl<span class="w"> </span>--out<span class="w"> </span>out/xyl<span class="w"> </span>--brief<span class="w"> </span>examples/make_figure/brief.md<span class="w"> </span><span class="se">\</span>
+<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>make_figure.py<span class="w"> </span>--name<span class="w"> </span>xyl<span class="w"> </span>--out<span class="w"> </span>out/xyl<span class="w"> </span>--legacy-loop<span class="w"> </span>--brief<span class="w"> </span>examples/make_figure/brief.md<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--manuscript<span class="w"> </span>paper.pdf<span class="w"> </span>--section<span class="w"> </span><span class="s2">&quot;Feedback&quot;</span><span class="w"> </span>--journal<span class="w"> </span>nature<span class="w"> </span>--dry-run
 </code></pre></div>
 <p>빠진 것이 있으면 <code>[MISSING]</code> 줄이 무엇이 빠졌고 어떻게 얻는지 적고 종료코드 2 로 멈춘다. 흔한 것은 Servier 아트 카탈로그다(<a href="../getting-started/install/#art-catalog">설치</a>). 모델에 보낼 글은 <code>&lt;name&gt;.input.md</code> 로 미리 볼 수 있다.</p>
@@ -1486,7 +1542,7 @@ The repression by P is the point of the figure; draw it as the only inhibitory e
 <p>사용 한도 등으로 중간에 멈춘 실행은 같은 명령에 <code>--resume</code> 을 붙여 잇는다. 끝난 S1 과 라운드를 다시 쓰고 남은 라운드를 돈다. 요청문, 원고, 답, 표, 그리기 옵션이 앞 실행과 다르면 무엇이 다른지 밝히고 거절한다.</p>
 <h2 id="with-data-panel">데이터 패널을 함께 넣기<a class="headerlink" href="#with-data-panel" title="Permanent link">&para;</a></h2>
 <p><code>--panel</code> 을 더하면 패널을 구조화 입력으로 등록하고 작가가 그림 안에 배치한다. 충실도 검사가 등록한 입력이 모두 배치됐는지 본다.</p>
-<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>make_figure.py<span class="w"> </span>--name<span class="w"> </span>xyl_fig<span class="w"> </span>--out<span class="w"> </span>out/xyl_fig<span class="w"> </span>--brief<span class="w"> </span>examples/make_figure/brief.md<span class="w"> </span><span class="se">\</span>
+<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>make_figure.py<span class="w"> </span>--name<span class="w"> </span>xyl_fig<span class="w"> </span>--out<span class="w"> </span>out/xyl_fig<span class="w"> </span>--legacy-loop<span class="w"> </span>--brief<span class="w"> </span>examples/make_figure/brief.md<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--panel<span class="w"> </span>examples/make_figure/yield.panel.yaml
 </code></pre></div>
 <p>이미 fig.yaml 이 있으면 <code>--mech-spec &lt;fig.yaml&gt;</code> 로 모델 없이 기전 그림 아래에 데이터 패널을 붙인다.</p>

@@ -14,7 +14,7 @@
         <link rel="prev" href="../illustrator/">
       
       
-        <link rel="next" href="../scope/">
+        <link rel="next" href="../data-marks/">
       
       
         
@@ -699,6 +699,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../path-a/svg/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    직접 그린 SVG 출고
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1099,6 +1127,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data-marks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    데이터 표식 규약
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1253,9 +1309,9 @@
 </ul>
 <p>슬래시 명령으로 바로 돌릴 수도 있다.</p>
 <div class="highlight"><pre><span></span><code>/illustrator-figkit:make examples/data_panel/bar.panel.yaml
-/illustrator-figkit:make request.md --journal nature --manuscript paper.pdf
+/illustrator-figkit:make request.md --journal nature
 </code></pre></div>
-<p>첫 토큰이 panel.yaml 이면 데이터 그림으로 바로 돈다. 요청문(md, txt)이면 먼저 <code>--dry-run</code> 을 돌리고 모델을 부르기 전에 확인을 받는다. 산출물은 작업 폴더의 <code>out/&lt;이름&gt;/</code> 에 쓴다.</p>
+<p>첫 토큰이 panel.yaml 이면 데이터 그림으로 바로 돈다. 요청문(md, txt)이면 Claude 가 SVG 를 직접 그린 뒤 <code>--svg</code> 로 출고한다. figkit 은 모델을 부르지 않는다. 산출물은 작업 폴더의 <code>out/&lt;이름&gt;/</code> 에 쓴다.</p>
 <p>수치 데이터 플롯은 <code>make_figure.py --panel</code> 쪽이고 개념·도식·아이콘·기존 <code>.ai</code> 는 이 스킬 쪽이다.</p>
 <h2 id="3">3. 처음에 같이 말해 주면 왕복이 준다<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
 <p>없어도 진행되지만 Claude 가 되묻거나 기본값으로 그린다.</p>
